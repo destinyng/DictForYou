@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word's Page</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            {% if user != None %}
+            <a class="navbar-brand" href="#">Hello, {{user.first_name}}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto"></ul>
+                <span class="navbar-text">
+                    <a href="/users/profile" role="button"
+                    class="btn btn-sm btn-info ml-2 text-white">Back</a>
+                    <a href="/logout" role="button"
+                        class="btn btn-sm btn-info ml-2 text-white">Logout</a>
+            
+                </span>
+            {% endif %}    
+            </div>
+        </div> 
+    </nav>
+
+    <center>
+    <h1> Word:  {{word.content}} </h1>
+    <h3> Definitions: </h3>
+    <ol>
+    {% for definition in definitions %}
+        <li> {{definition.content}} </li>
+    {% endfor %}
+    </ol>
+    
+    <h3> Synonyms: </h3>
+    <ol>
+    {% for synonym in synonyms %}
+        <li> {{synonym.content}} </li>
+    {% endfor %}
+    </ol>
+
+    <h3> Antonyms: </h3>
+    <ol>
+    {% for antonym in antonyms %}
+        <li> {{antonym.content}}</li>
+    {% endfor %}
+    </ol>
+    
+        {% if user not in word.user_that_like_word.all %} 
+            <form action='/words/like/{{word.id}}' method='POST'>
+                {% csrf_token %}
+                                
+                <input type='submit' value='Like'>
+            </form> 
+        {% endif %}
+    
+    </center>
+    <footer><p>Powered by WordsAPI</p></footer>
+<style>
+    footer {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color:rgb(231, 142, 142);
+        color: white;
+        text-align: center;
+    }
+</style>
+</body>
+
+</html>

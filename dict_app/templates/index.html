@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+    <title>Welcome</title>
+</head>
+
+<center>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto"></ul>
+                <span class="navbar-text">
+                    <a href="/login" role="button"
+                    class="btn btn-sm btn-info ml-2 text-white"> Login</a>
+                        
+                    <a href="/login" role="button"
+                    class="btn btn-sm btn-info ml-2 text-white">Register</a>
+                        
+                        
+                </span>
+
+                
+            </div>
+            
+        </div>
+    </nav>
+
+        <h1>Welcome to DictForYou!</h1>
+        <form method="post" action="/findaword">
+            {% csrf_token %}
+
+            <div style="border:1px solid rgb(211, 154, 168);padding:4px;width:20em;">
+            <table border="0" align="center" cellpadding="0">
+            <tr><td>
+            <input type="text"  name="content" size="25"
+            maxlength="255" value="" />
+            <input type="submit" value="Search" /></td></tr>
+            <tr><td align="center" style="font-size:75%">
+            
+            </td></tr></table>
+            </div>
+            
+        </form>
+        
+
+           
+       
+   
+        <footer><p>Powered by WordsAPI</p></footer>
+<style>
+    footer {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color:rgb(231, 142, 142);
+        color: white;
+        text-align: center;
+    }
+</style>
+</body>
+</center>
+</html>
+
+    

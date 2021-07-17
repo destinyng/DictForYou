@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+    <title>Login and Register</title>
+</head>
+<body>
+    <h1>Welcome to DictForYou!</h1>
+    {% for message in messages %}
+        <p class="text-danger small">{{message}}</p>
+    {% endfor %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-6 px-3">
+                <h4 class="display-6">Register</h4>
+                <form action='/users/register' method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="form-group row">
+                        <label for="first_name" class="col-sm-4 col-form-label col-form-label-sm">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="first_name" class="form-control form-control-sm" name="first_name">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="last_name" class="col-sm-4 col-form-label col-form-label-sm">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="last_name" class="form-control form-control-sm" name="last_name">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label col-form-label-sm">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control form-control-sm" name="email">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-4 col-form-label col-form-label-sm">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control form-control-sm" name="password">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-sm-4 col-form-label col-form-label-sm">Confirm Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control form-control-sm" name="confirm_password">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-14 text-right">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-6 px-3">
+                <h4 class="display-6">Login</h4>
+                <form action='/users/login' method="POST">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label col-form-label-sm">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm" name="email">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-4 col-form-label col-form-label-sm">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control form-control-sm" name="password">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-14 text-right">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+      
+    <footer><p>Powered by WordsAPI</p></footer>
+<style>
+    footer {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color:rgb(231, 142, 142);
+        color: white;
+        text-align: center;
+    }
+</style>
+</body>
+
+
+
+
+</html>
